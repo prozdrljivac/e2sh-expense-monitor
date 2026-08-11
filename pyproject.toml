@@ -4,4 +4,6 @@ version = "0.1.0"
 description = "Simple python app used to automate the process of writing the cards expenses to family Sheet"
 readme = "README.md"
 requires-python = ">=3.14"
-dependencies = []
+dependencies = [
+    "requests>=2.34.2",
+]
