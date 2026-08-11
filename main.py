@@ -7,13 +7,13 @@ import collections
 import requests
 import os
 
-GoogleSettings = collections.namedtuple('GoogleSettings', ['client_id', 'client_secret', 'access_token'])
+GoogleSettings = collections.namedtuple('GoogleSettings', ['client_id', 'client_secret', 'access_token', 'refresh_token'])
 
 
 def main():
 
     # 1. Access environment variables
-    google_settings = GoogleSettings(os.environ.get("CLIENT_ID"), os.environ.get("CLIENT_SECRET"), os.environ.get("ACCESS_TOKEN"))
+    google_settings = GoogleSettings(os.environ.get("CLIENT_ID"), os.environ.get("CLIENT_SECRET"), os.environ.get("ACCESS_TOKEN"), os.environ.get('REFRESH_TOKEN'))
     print(google_settings)
     response = requests.api.get(url='https://gmail.googleapis.com/gmail/v1/users/me/profile', headers={
        'Authorization': f'Bearer {google_settings.access_token}'
